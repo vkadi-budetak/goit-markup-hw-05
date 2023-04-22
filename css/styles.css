@@ -15,6 +15,11 @@
   --accent-bg-cl: #06060a;
   --hover-bg-cl: #31d0aa;
   /* Others */
+
+  --anim-fast: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  --modal-bg-cl: #fcfcfc;
+  --modal-idx: 100;
 }
 
 /**
@@ -124,6 +129,7 @@ footer .logo {
   /* padding: 24px 0; */
 }
 .header-link {
+  position: relative;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
@@ -132,6 +138,29 @@ footer .logo {
   display: block;
   color: #2e2f42;
   padding: 24px 0;
+
+  transition: background-color var(--anim-fast);
+}
+.header-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+
+  transition: background-color var(--anim-fast);
+}
+.header-link.current {
+  color: var(--accent-txt-cl);
+}
+
+.header-link.current::after,
+.header-link:hover::after,
+.header-link:focus::after {
+  background-color: var(--accent-txt-cl);
 }
 
 .header-address {
@@ -140,11 +169,8 @@ footer .logo {
 }
 .header-contakts {
   display: block;
-  /* padding-top: 24px;
-  padding-bottom: 24px; */
   display: flex;
   margin: auto;
-  /* margin-left: 332px; */
   gap: 40px;
 }
 
@@ -163,7 +189,8 @@ footer .logo {
   letter-spacing: 0.02em;
   font-style: normal;
   color: #434455;
-  /* margin-right: 40px; */
+
+  transition: background-color var(--anim-fast);
 }
 
 /**
@@ -219,6 +246,8 @@ footer .logo {
   margin: 0 auto;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+
+  transition: background-color var(--anim-fast);
 }
 .hero_btn:hover,
 .hero_btn:focus {
@@ -363,6 +392,8 @@ footer .logo {
   height: 40px;
   background-color: var(--logo-txt-cl);
   border-radius: 50%;
+
+  transition: background-color var(--anim-fast);
 }
 .socials-link:hover,
 .socials-link:focus {
@@ -397,6 +428,8 @@ footer .logo {
   border: 1px solid #8e8f99;
   border-radius: 4px;
   color: var(--fons-txt-cl);
+
+  transition: background-color var(--anim-fast);
 }
 
 .customers-link:hover,
@@ -449,6 +482,8 @@ footer .logo {
   padding: 12px 24px;
   border: 1px solid var(--btn-cl);
   border-radius: 4px;
+
+  transition: background-color var(--anim-fast);
 }
 .btn-list-txt:hover,
 .btn-list-txt:focus {
@@ -486,12 +521,42 @@ footer .logo {
 
 .servise-title {
   display: block;
+
+  transition: background-color var(--anim-fast);
 }
 
 .servise-title:hover,
 .servise-title:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+.service-box {
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(100%);
+
+  width: 360px;
+  height: 300px;
+  padding: 40px 32px 164px;
+  background-color: var(--logo-txt-cl);
+  mix-blend-mode: normal;
+
+  transition: var(--anim-fast);
+}
+
+.list_servise:hover .overlay {
+  transform: translateY(0);
+}
+
+.overlay-text {
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--white-txt-cl);
 }
 
 .img-portfolio {
@@ -544,9 +609,76 @@ footer .logo {
   height: 40px;
   background-color: var(--logo-txt-cl);
   border-radius: 50%;
+
+  transition: background-color var(--anim-fast);
 }
 
 .footer-socials-link:hover,
 .footer-socials-link:focus {
   background-color: var(--hover-bg-cl);
+}
+
+/**
+  |============================
+  | Modal styles
+  |============================
+*/
+.backrop {
+  /* display: none; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--modal-idx);
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(46, 47, 66, 0.4);
+}
+
+
+.is-hidden {
+opacity: 0;
+visibility: hidden;
+pointer-events: none;
+}
+.modal {
+  position: absolute;
+  top: 88px;
+  left: calc(50% - 204px);
+
+  width: 408px;
+  min-height: 576px;
+  padding: 24px;
+
+  background-color: var(--modal-bg-cl);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.modal-button {
+  width: 24px;
+  height: 24px;
+  display: block;
+  margin-left: auto;
+  /* background-color: var(--btn-cl); */
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+
+  transition: background-color var(--anim-fast);
+}
+
+.modal-button:hover,
+.modal-button:focus {
+  color: var(--btn-txt-cl);
+  background-color: var(--accent-txt-cl);
+}
+
+.modal-icon {
+  transition: background-color var(--anim-fast);
+}
+.modal-icon:hover,
+.modal-icon:focus {
+  fill: currentColor;
 }
