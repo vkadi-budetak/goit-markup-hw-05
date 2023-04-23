@@ -545,6 +545,8 @@ footer .logo {
   padding: 40px 32px 164px;
   background-color: var(--logo-txt-cl);
   mix-blend-mode: normal;
+
+  transition: var(--anim-fast);
 }
 
 .servise-title:hover .overlay {
