@@ -425,7 +425,6 @@ footer .logo {
   border-radius: 4px;
   color: var(--fons-txt-cl);
 
-  transition: color var(--anim-fast);
   transition: border-color var(--anim-fast);
 }
 
@@ -437,6 +436,8 @@ footer .logo {
 
 .customers-icon {
   fill: currentColor;
+
+  transition: color var(--anim-fast);
 }
 
 /* Footer */
@@ -480,10 +481,10 @@ footer .logo {
   border: 1px solid var(--btn-cl);
   border-radius: 4px;
 
-  transition: color var(--anim-fast);
-  transition: background-color var(--anim-fast);
+  transition: color, background-color, border, box-shadow var(--anim-fast);
+  /* transition: background-color var(--anim-fast);
   transition: border var(--anim-fast);
-  transition: box-shadow var(--anim-fast);
+  transition: box-shadow var(--anim-fast); */
 }
 .btn-list-txt:hover,
 .btn-list-txt:focus {
@@ -529,6 +530,8 @@ footer .logo {
 .servise-title:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+    
+    transition: box-shadow var(--anim-fast);  
 }
 .service-box {
   position: relative;
@@ -549,7 +552,8 @@ footer .logo {
   transition: var(--anim-fast);
 }
 
-.servise-title:hover .overlay {
+.servise-title:hover .overlay,
+.servise-title:focus .overlay {
   transform: translateY(0);
 }
 
@@ -634,12 +638,16 @@ footer .logo {
   height: 100%;
 
   background-color: rgba(46, 47, 66, 0.4);
+
+  transition: background-color var(--anim-fast);
 }
 
 .is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+
+  transition: opacity, visibility var(--anim-fast);
 }
 .modal {
   position: absolute;
