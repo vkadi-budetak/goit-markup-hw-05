@@ -282,12 +282,10 @@ footer .logo {
 }
 
 .subtitle {
-  /* font-family: Roboto, sans-serif; */
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.02em;
-  /* text-align: center; */
   color: #2e2f42;
   margin-bottom: 8px;
 }
@@ -308,7 +306,6 @@ footer .logo {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  /* text-align: center; */
   color: #434455;
 }
 .subtitle-team-txt {
@@ -320,7 +317,6 @@ footer .logo {
   text-align: center;
   color: #434455;
   margin-bottom: 8px;
-  /* width: 264px; */
 }
 
 /* Section 2 */
@@ -426,6 +422,7 @@ footer .logo {
   color: var(--fons-txt-cl);
 
   transition: border-color var(--anim-fast);
+  transition: color var(--anim-fast);
 }
 
 .customers-link:hover,
@@ -437,7 +434,7 @@ footer .logo {
 .customers-icon {
   fill: currentColor;
 
-  transition: color var(--anim-fast);
+  /* transition: color var(--anim-fast); */
 }
 
 /* Footer */
@@ -581,7 +578,6 @@ footer .logo {
 .footer-list {
   display: flex;
   align-items: baseline;
-  /* gap: 120px; */
 }
 
 .footer-logo-list {
@@ -628,7 +624,6 @@ footer .logo {
   |============================
 */
 .backrop {
-  /* display: none; */
   position: fixed;
   top: 0;
   left: 0;
@@ -639,7 +634,8 @@ footer .logo {
 
   background-color: rgba(46, 47, 66, 0.4);
 
-  transition: background-color var(--anim-fast);
+  transition: opacity, visibility var(--anim-fast);
+  /* transition: background-color var(--anim-fast); */
 }
 
 .is-hidden {
@@ -647,7 +643,7 @@ footer .logo {
   visibility: hidden;
   pointer-events: none;
 
-  transition: opacity, visibility var(--anim-fast);
+  /* transition: opacity, visibility var(--anim-fast); */
 }
 .modal {
   position: absolute;
